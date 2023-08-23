@@ -40,7 +40,7 @@ app.get('/', (req, res) => {
 })
 
 app.post('/login', async (req, res) => {
-  const user = req.body;
+  const user = req.body.user;
   const password = await login(user);
   if(!password){
     res.status(404).send('User not found, please check that the email address entered is correct')
@@ -64,7 +64,7 @@ app.post('/login', async (req, res) => {
 })
 
 app.post('/register', async (req, res) => {
-  const user = req.body;
+  const user = req.body.user;
   const address = await search(user);
   if(address){
     res.status(400).send('Email address already exists');
