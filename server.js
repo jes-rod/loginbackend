@@ -41,6 +41,7 @@ app.get('/', (req, res) => {
 
 app.post('/login', async (req, res) => {
   const user = req.body.user;
+  console.log(user);
   const password = await login(user);
   if(!password){
     res.status(404).send('User not found, please check that the email address entered is correct')
