@@ -33,6 +33,9 @@ const register = async (user) => {
 const search = async (user) => {
   const client = await pool.connect(); 
   const { rows } = await client.query(`SELECT * FROM users WHERE email_address = '${user.emailAddress}'`);
+  if(rows.length === 0){
+    return false;
+  }
   console.log(rows[0].email_address);
   await client.release();
   return rows[0].email_address;
