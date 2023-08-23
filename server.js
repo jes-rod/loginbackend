@@ -6,7 +6,7 @@ const {login, register, search} = require('./db.js');
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const bodyParser = require('body-parser')
-require('dotenv').config({path: './.env'});
+require('dotenv').config()
 
 app.use(cors());
 app.use(bodyParser.json());
