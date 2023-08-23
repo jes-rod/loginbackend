@@ -40,6 +40,8 @@ app.get('/', (req, res) => {
 })
 
 app.post('/login', async (req, res) => {
+  console.log(req.body);
+  console.log(req.body.user);
   const user = req.body.user;
   console.log(user);
   const password = await login(user);
