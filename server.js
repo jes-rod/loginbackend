@@ -7,7 +7,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const bodyParser = require('body-parser')
 const {Pool} = require('pg');
-//require('dotenv').config()
+require('dotenv').config()
 
 const pool = new Pool({
   host: process.env.DB_HOST,
