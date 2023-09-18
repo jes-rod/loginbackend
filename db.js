@@ -36,7 +36,6 @@ const search = async (user) => {
   if(rows.length === 0){
     return false;
   }
-  console.log(rows[0].email_address);
   await client.release();
   return rows[0].email_address;
 }
