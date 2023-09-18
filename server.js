@@ -40,10 +40,7 @@ app.get('/', (req, res) => {
 })
 
 app.post('/login', async (req, res) => {
-  console.log(req.body);
-  console.log(req.body.user);
   const user = req.body.user;
-  console.log(user);
   const password = await login(user);
   if(!password){
     res.status(404).send('User not found, please check that the email address entered is correct')
@@ -74,10 +71,8 @@ app.post('/register', async (req, res) => {
     return;
   }
   const hpassword = await bcrypt.hash(user.password, parseInt(process.env.SALT, 10))
-  console.log(hpassword);
   user.password = hpassword;
   const response = await register(user);
-  console.log(response);
   res.send('User registered successfully');
 })
 
